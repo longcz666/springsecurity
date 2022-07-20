@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<!--出现了验证错误后，实现下面内容-->
+<div th:if="${param.error}">
+  <p style="text-align: center" class="text-danger">登录失败，账号或密码错误!</p>
+</div>
+<!--这里是提交给SpringSecurity配置的登录URL处理-->
+<form th:action="@{/login}" method="post">
+  <!--这里注意：名称必须是username和password，SpringSecurity默认指定的-->
+  <input type="text" name="username" placeholder="Input your username"><br>
+  <input type="password" name="password" placeholder="Input your password"><br>
+  <input type="submit" value="Login">
+</form>
+</body>
+</html>
